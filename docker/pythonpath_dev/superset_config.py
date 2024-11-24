@@ -29,9 +29,11 @@ from flask_caching.backends.filesystemcache import FileSystemCache
 from importlib.resources import files
 from typing import Any, Callable, Literal, TYPE_CHECKING, TypedDict
 from celery.schedules import crontab
-from flask_caching.backends.filesystemcache import FileSystemCache
 
 logger = logging.getLogger()
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("superset")
 
 DATABASE_DIALECT = os.getenv("DATABASE_DIALECT")
 DATABASE_USER = os.getenv("DATABASE_USER")
@@ -53,6 +55,7 @@ REDIS_CELERY_DB = os.getenv("REDIS_CELERY_DB", "0")
 REDIS_RESULTS_DB = os.getenv("REDIS_RESULTS_DB", "1")
 
 RESULTS_BACKEND = FileSystemCache("/app/superset_home/sqllab")
+
 
 CACHE_CONFIG = {
     "CACHE_TYPE": "RedisCache",
@@ -194,7 +197,7 @@ FEATURE_FLAGS = {
 
 CELERY_CONFIG = CeleryConfig
 
-FEATURE_FLAGS = {"ALERT_REPORTS": True}
+# FEATURE_FLAGS = {"ALERT_REPORTS": True}
 ALERT_REPORTS_NOTIFICATION_DRY_RUN = True
 WEBDRIVER_BASEURL = "http://superset:8088/"  # When using docker compose baseurl should be http://superset_app:8088/
 # The base URL for the email report hyperlinks.

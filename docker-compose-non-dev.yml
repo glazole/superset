@@ -2,7 +2,7 @@ x-superset-depends-on: &superset-depends-on
   - redis
 x-superset-volumes: &superset-volumes
   - ./docker:/app/docker
-  - superset_home:/app/superset_home
+  - /opt/superset/superset_home:/app/superset_home
 
 x-common-build: &common-build
   context: .
