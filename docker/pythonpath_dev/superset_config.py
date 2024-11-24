@@ -101,13 +101,11 @@ class CeleryConfig:
 # ----------------------------------------------------
 AUTH_TYPE = AUTH_LDAP
 AUTH_LDAP_SERVER = "ldap://openldap:389"
-AUTH_LDAP_USE_TLS = False
-AUTH_LDAP_SEARCH = "dc=handyman,dc=moscow"  # the LDAP search base
-AUTH_LDAP_UID_FIELD = "cn"  # the username field
-# For a typical OpenLDAP setup (where LDAP searches require a special account):
-# The user must be the LDAP USER as defined in LDAP_ADMIN_USERNAME
-AUTH_LDAP_BIND_USER = "cn=admin,dc=handyman,dc=moscow"  # the special bind username for search
-AUTH_LDAP_BIND_PASSWORD = "LBwVsdcybztkTbWouZHURUh4gm3MMMMjGPLKSw1Y"  # the special bind password for search
+AUTH_LDAP_BIND_USER = "cn=admin,dc=handyman,dc=moscow"
+AUTH_LDAP_BIND_PASSWORD = "LBwVsdcybztkTbWouZHURUh4gm3MMMMjGPLKSw1Y"
+AUTH_LDAP_SEARCH = "dc=handyman,dc=moscow"
+AUTH_LDAP_UID_FIELD = "cn"
+
 # registration configs
 AUTH_USER_REGISTRATION = True  # allow users who are not already in the FAB DB
 AUTH_USER_REGISTRATION_ROLE = "Admin"  # this role will be given in addition to any AUTH_ROLES_MAPPING
